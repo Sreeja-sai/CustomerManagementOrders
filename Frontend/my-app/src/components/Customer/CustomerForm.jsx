@@ -63,7 +63,7 @@ export default function CustomerForm() {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/customer", {
+      const response = await fetch("https://customermanagementorders.onrender.com/customer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(customerData),
