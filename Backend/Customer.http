@@ -1,0 +1,131 @@
+// Create a New Customer with there address details
+POST http://localhost:3000/customer
+Content-Type: application/json
+
+{
+    "firstName": "Sreeja",
+    "lastName": "Meesala",
+    "email": "sreejameesala123@gmail.com",
+    "phone": "7989684044",
+    "addresses": [
+      {
+        "street": "Godugupeta",
+        "city": "Machilipatnam",
+        "state":"AP",
+        "postalCode":"521001",
+        "country":"India"
+      },
+      {
+        "street": "Balaramunipeta",
+        "city": "Machilipatnam",
+        "state":"AP",
+        "postalCode":"521001",
+        "country":"India"
+      }
+    ]
+}
+
+###
+// Create a New address for exisiting Customer
+POST http://localhost:3000/customer/2
+Content-Type: application/json
+
+{
+  "street":"Godugupeta",
+  "city": "Machilipatnam",
+  "state": "AP",
+  "postalCode": "521001",
+  "country": "India"
+}
+
+###
+//Get all customer details with there addresses
+GET http://localhost:3000/customer
+
+###
+//Get specific customer details with there addresses
+GET http://localhost:3000/customer/3
+
+###
+
+// Updating the Customer details with lastName,firstName,phone,email (Not by address)
+PUT http://localhost:3000/customer/2
+Content-Type: application/json
+
+{
+  "firstName": "Sai Sreeja",
+  "lastName": "Meesala",
+  "email": "sreejameesala123@gmail.com",
+  "phone": "7989684044"
+}
+###
+
+// Updating the address details of specific address 
+PUT http://localhost:3000/address/2
+Content-Type: application/json
+
+{
+  "street":"VendiDevalayam",
+  "city": "Jaggayyapeta",
+  "state": "AP",
+  "postalCode": "521001",
+  "country": "India"
+}
+
+###
+
+//Delete Specific Address by AddressId
+DELETE http://localhost:3000/address/2
+
+###
+
+//Delete Specific Customer and there address details
+DELETE http://localhost:3000/customer/2
+
+###
+
+//GET all Products
+
+GET http://localhost:3000/products
+
+###
+//Create New Order
+POST http://localhost:3000/customerorder/3
+###
+
+//Create a new Order Details of Product
+
+POST http://localhost:3000/order/3/product/9
+Content-Type: application/json
+
+{
+  "quantity": 2
+}
+
+###
+//Get all Orders 
+GET http://localhost:3000/orders
+
+###
+//Get All OrderItems with all orders
+GET http://localhost:3000/orders/all
+###
+
+//Get Specific Item in a specific order
+GET http://localhost:3000/orders/3/items/7
+
+###
+// Delete Orders
+DELETE http://localhost:3000/orders/1
+
+###
+//delete specific OrderItem for this specific order
+DELETE http://localhost:3000/orders/3/items/8
+
+
+###
+// Delete all order items for this order
+DELETE http://localhost:3000/orders/1/items
+
+
+###
