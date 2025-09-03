@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000", // adjust if your backend runs on another port
+  baseURL: "https://customermanagementorders.onrender.com", 
   headers: { "Content-Type": "application/json" }
 });
 
