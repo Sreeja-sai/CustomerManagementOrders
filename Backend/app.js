@@ -6,6 +6,7 @@ const sqlite3=require('sqlite3');
 const path=require('path');
 const { request } = require('http');
 const { error } = require('console');
+const PORT = process.env.PORT || 3000;
 const app=express();
 
 app.use(express.json());
@@ -22,9 +23,9 @@ const dbConnectionServer=async ()=>{
       driver: sqlite3.Database,
     })
      await db.run("PRAGMA foreign_keys = ON;");
-    app.listen(3000,()=>{
-      console.log("Server started at localhost https://localhost:3000/")
-    })
+    app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    });
   }catch(err){
     console.log(`Error Msg: ${err.message}`)
     process.exit(-1);
@@ -335,7 +336,7 @@ app.delete('/customer/:customerId',async(request,response)=>{
   await db.run(`DELETE FROM Customer where Customer.customerId=${customerId};`);
   return response.status(200).send("Customer and their addresses deleted successfully");
   }catch(err){
-    return response.status(500).json({ error: error.message });
+    return response.status(500).json({ error: err.message });
   }
 });
 
